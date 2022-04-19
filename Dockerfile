@@ -11,4 +11,4 @@ WORKDIR /findmynode
 RUN node --version
 
 # set user/pw for icloud, sqldb, sql ip/port
-CMD ["npm", "start"]
+CMD ["node", "./bin/www"]
