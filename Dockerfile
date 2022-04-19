@@ -9,6 +9,9 @@ RUN git clone https://github.com/ctkcoding/findmynode.git
 WORKDIR findmynode
 RUN node bin/www
 
+ENTRYPOINT ["tail", "-f", "/dev/null"]
+
+
 # set user/pw for icloud, sqldb, sql ip/port
 
 CMD ["/script.sh"]
