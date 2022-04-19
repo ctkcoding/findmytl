@@ -4,8 +4,11 @@ COPY script.sh /script.sh
 RUN apk add --no-cache bash
 RUN apk add --no-cache libc6-compat
 RUN apk add --no-cache git
-RUN git clone https://github.com/ctkcoding/Find-my-iphone.git
-WORKDIR find-my-iphone
-RUN npm run devStart
+RUN node --version
+RUN git clone https://github.com/ctkcoding/findmynode.git
+WORKDIR findmynode
+RUN node bin/www
+
+# set user/pw for icloud, sqldb, sql ip/port
 
 CMD ["/script.sh"]
