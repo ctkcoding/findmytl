@@ -1,0 +1,26 @@
+{
+  "name": "findmytl",
+  "version": "1.0.0",
+  "description": "track ios device and log",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctkcoding/findmytl.git"
+  },
+  "author": "ctkcoding",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctkcoding/findmytl/issues"
+  },
+  "homepage": "https://github.com/ctkcoding/findmytl#readme",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "debug": "^4.3.4",
+    "ejs": "^3.1.7",
+    "express": "^4.18.0",
+    "morgan": "^1.10.0"
+  }
+}
