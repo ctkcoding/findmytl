@@ -1,0 +1,21 @@
+<html>
+    <a href="/">back</a>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>timestamp</th>
+            <th>device</th>
+            <th>battery</th>
+            <th>location</th>
+        </tr>
+        <% history.map((snapshot, index)=>{%>
+        <tr>
+            <td><%=snapshot.id%></td>
+            <td><%=snapshot.timestamp%></td>
+            <td><%=snapshot.device[0].name%></td>
+            <td><%=snapshot.battery%></td>
+            <td><%=snapshot.location[0].lat%>, <%=snapshot.location[0].long%></td>
+        </tr>
+        <%})%>       
+    </table>
+</html>

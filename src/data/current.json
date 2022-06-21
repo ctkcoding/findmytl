@@ -1,0 +1,17 @@
+{
+    "id": "456ujkhgftyu8hj",
+    "device": [
+        {
+            "name": "chris' iphone",
+            "id": "456ujkhgftyu8hj"
+        }
+     ],
+    "timestamp": "06/20/2022, 11:43:57 PM",
+    "battery": "42",
+    "location": [
+        {
+            "lat": "41.922714",
+            "long": "-87.687680"
+        }
+    ]
+}
