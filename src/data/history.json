@@ -1,0 +1,32 @@
+[
+    {"id": "567ujhgf78u65rf",
+     "device": [
+        {
+            "name": "chris' iphone",
+            "id": "456ujkhgftyu8hj"
+        }
+     ],
+     "battery": 100,
+     "timestamp": "08/28/2019, 9:43:57 PM EDT",
+     "location":
+         [{
+             "lat":39.992122,
+             "long": -83.015299
+        }]
+    },
+    {"id": "67ujhgt678ut67u",
+        "device": [
+            {
+                "name": "chris' iphone",
+                "id": "456ujkhgftyu8hj"
+            }
+         ],    "battery": 3,
+    "timestamp": "11/25/2019, 8:11:57 PM EST",
+    "location":[
+        {
+            "lat":39.987422,
+            "long": -83.012265
+        }
+    ]
+    }
+]

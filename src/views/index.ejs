@@ -1,0 +1,23 @@
+<html>
+    <h1>
+        <%=snapshot.device[0].name%>
+    </h1>
+    <a href="/history">history</a>
+    <p> Current details:</p>
+    <table>
+        <tr>
+            <th>SNAPSHOT ID</th>
+            <th>DATA TS</th>
+            <th>DEVICE ID</th>
+            <th>BATTERY</th>
+            <th>LOCATION</th>
+        </tr>
+        <tr>
+            <td><%=snapshot.id%></td>
+            <td><%=snapshot.timestamp%></td>
+            <td><%=snapshot.device[0].id%></td>
+            <td><%=snapshot.battery%>%</td>
+            <td><%=snapshot.location[0].lat%>, <%=snapshot.location[0].long%></td>
+        </tr>
+    </table>
+</html>

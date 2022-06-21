@@ -1,0 +1,25 @@
+<html>
+    <h1>
+        Currently in <%= testing%> mode
+    </h1>
+    <p> Data retrieved from icloud:</p>
+    <table>
+        <tr>
+            <th>SNAPSHOT ID</th>
+            <th>DATA TS</th>
+            <th>DEVICE NAME</th>
+            <th>DEVICE ID</th>
+            <th>BATTERY</th>
+            <th>LOCATION</th>
+        </tr>
+        <tr>
+            <td><%=snapshot.id%></td>
+            <td><%=snapshot.timestamp%></td>
+            <td><%=snapshot.device.name%></td>
+            <td><%=snapshot.device.id%></td>
+            <td><%=snapshot.battery%></td>
+            <td><%=snapshot.location.lat%>, <%=snapshot.location.long%></td>
+        </tr>
+    </table>
+
+    </html>
