@@ -1,7 +1,18 @@
 <html>
     <h1>
-        Currently in <%= testing%> mode
+        icloud testing page
     </h1>
+    <p> iCloud login page</p>
+    <table>
+        <tr>
+            <th>APPLE ID</th>
+            <th>PASSWORD</th>
+        </tr>
+        <tr>
+            <td><%=login.apple_id%></td>
+            <td><%=login.password%></td>
+        </tr>
+    </table>
     <p> Data retrieved from icloud:</p>
     <table>
         <tr>
@@ -13,12 +24,6 @@
             <th>LOCATION</th>
         </tr>
         <tr>
-            <td><%=snapshot.id%></td>
-            <td><%=snapshot.timestamp%></td>
-            <td><%=snapshot.device.name%></td>
-            <td><%=snapshot.device.id%></td>
-            <td><%=snapshot.battery%></td>
-            <td><%=snapshot.location.lat%>, <%=snapshot.location.long%></td>
         </tr>
     </table>
 

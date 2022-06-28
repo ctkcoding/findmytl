@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const histRouter = require('./src/routers/history');
 const homeRouter = require('./src/routers/home');
+const icloudRouter = require('./src/routers/icloud');
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public/')));
@@ -16,7 +17,8 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use('/history', histRouter);
-app.get('/', homeRouter);
+app.use('/', homeRouter);
+app.use('/icloud', icloudRouter);
 
 app.listen(PORT,()=>{
     debug(`listening on ${chalk.green('PORT')}`);
