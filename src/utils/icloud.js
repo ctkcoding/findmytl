@@ -4,11 +4,12 @@ require('dotenv').config();
 let history = [];
 
 // require icloud
-cron.schedule('*****', async function() {
+cron.schedule('* * * * *', async () => {
+    console.log("running cron");
     //fetch location
-    location = await fetchLocation();
+    // location = await fetchLocation();
     //log to console and save to db
-    history.push(location);
+    // history.push(location);
 });
 
 function fetchLocation() {
