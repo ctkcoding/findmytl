@@ -1,18 +1,12 @@
-const cron = require('node-cron');
 const icloud = require("find-my-iphone").findmyphone;
+const cron = require('node-cron');
 require('dotenv').config();
+
 let history = [];
 
-// require icloud
-cron.schedule('* * * * *', async () => {
-    console.log("running cron");
-    //fetch location
-    // location = await fetchLocation();
-    //log to console and save to db
-    // history.push(location);
-});
 
 function fetchLocation() {
+    console.log("fetching location");
     //future type
     let snapshot = {
         "id": "",
@@ -21,7 +15,7 @@ function fetchLocation() {
         "battery": "",
         "location": []
     };
-    icloud.getDevices(function(error, devices) {
+    return icloud.getDevices(function(error, devices) {
         var device;
         if (error) {
             console.log(error);
@@ -32,7 +26,7 @@ function fetchLocation() {
                 }
             });
             if (device) {
-                console.log(device)
+                // console.log(device)
                 snapshot.id = ""; //new random uuid
                 snapshot.device = {
                     name: device.name,
@@ -45,9 +39,22 @@ function fetchLocation() {
                     long: device.location.longitude
                 };
             }
-            console.log(snapshot);
+            // console.log(snapshot);
+            return snapshot;
         }
         // res.send(array);
     });
 }
 
+exports.iCloudScheduler = async () => {
+    const iCloudJob = cron.schedule('*/10 * * * * *', async () => {
+        // fetch location
+        let location = await fetchLocation();
+    
+        // log to console and save to db
+        history.push(location);
+        console.log(location);
+    });
+
+    // iCloudJob.start();
+}
