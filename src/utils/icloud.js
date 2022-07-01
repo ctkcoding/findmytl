@@ -2,10 +2,11 @@ const icloud = require("find-my-iphone").findmyphone;
 const cron = require('node-cron');
 require('dotenv').config();
 
-let history = [];
+var history = [];
+icloud.apple_id = process.env.APPLE_ID;
+icloud.password = process.env.PASSWORD;
 
-
-function fetchLocation() {
+async function fetchLocation(myCallback) {
     console.log("fetching location");
     //future type
     let snapshot = {
@@ -15,8 +16,9 @@ function fetchLocation() {
         "battery": "",
         "location": []
     };
-    return icloud.getDevices(function(error, devices) {
-        var device;
+    icloud.getDevices(function(error, devices,) {
+        let device;
+        // console.log(device);
         if (error) {
             console.log(error);
         }else{
@@ -33,28 +35,26 @@ function fetchLocation() {
                     id: device.id
                 }
                 snapshot.battery = device.batteryLevel;
-                snapshot.timestamp = 1655867398835; //current time
+                snapshot.timestamp = Date.now(); //current time
                 snapshot.location = {
                     lat: device.location.latitude,
                     long: device.location.longitude
                 };
             }
-            // console.log(snapshot);
-            return snapshot;
         }
-        // res.send(array);
+        myCallback(snapshot);
     });
+}
+
+function handleSnapshot(snapshot) {
+    history.push(snapshot);
+    console.log(history);
 }
 
 exports.iCloudScheduler = async () => {
     const iCloudJob = cron.schedule('*/10 * * * * *', async () => {
-        // fetch location
-        let location = await fetchLocation();
-    
         // log to console and save to db
-        history.push(location);
-        console.log(location);
+        fetchLocation(handleSnapshot);
     });
-
     // iCloudJob.start();
 }
